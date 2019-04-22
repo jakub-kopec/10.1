@@ -31,6 +31,9 @@
     "onchange": "^5.2.0"
   },
   "dependencies": {
-    "mkdirp": "^0.5.1"
+    "flickity": "^2.2.0",
+    "flickity-hash": "^1.0.3",
+    "mkdirp": "^0.5.1",
+    "normalize.css": "^8.0.1"
   }
 }
