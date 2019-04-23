@@ -1,6 +1,21 @@
+//10.2
+
+var carousellTemplate= document.getElementById('template-carousell-slide').innerHTML;
+
+var carousellSlidesAdded ;
+
+
+for(var i = 0; i < carousellSlides.length; i++){
+    console.log(carousellSlides[i]);
+    carousellSlidesAdded += Mustache.render(carousellTemplate, carousellSlides[i]);
+}
+
+var mainCarousel = document.getElementById('carousel')
+console.log('mainCarousel', mainCarousel)
+mainCarousel.insertAdjacentHTML('beforeend', carousellSlidesAdded)
+
 //Initializing
 $('.main-carousel').flickity({
-    // options
     cellAlign: 'left',
     contain: true,
     hash: true
@@ -9,17 +24,14 @@ $('.main-carousel').flickity({
 var flkty = new Flickity('.main-carousel');
 
 // Reset button
-var goTo1Btn = document.getElementById('go-to-1')
+var reset = document.getElementById('reset')
 
-goTo1Btn.addEventListener( 'click', function( event ) {
-    // filter for button clicks
+reset.addEventListener( 'click', function( event ) {
     if ( !matchesSelector( event.target, '.button' ) ) {
-        // console.log('dupa')
         return;
     }
     var selector = event.target.getAttribute('data-selector');
     flkty.selectCell( selector );
-    console.log('data-selector', selector)
 })
 
 
@@ -30,3 +42,4 @@ flkty.on( 'scroll', function( progress ) {
     progress = Math.max( 0, Math.min( 1, progress ) );
     progressBar.style.width = progress * 100 + '%';
 });
+
