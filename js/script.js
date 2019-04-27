@@ -2,7 +2,7 @@
 
 var carousellTemplate= document.getElementById('template-carousell-slide').innerHTML;
 
-var carousellSlidesAdded ;
+var carousellSlidesAdded = '';
 
 
 for(var i = 0; i < carousellSlides.length; i++){

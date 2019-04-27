@@ -4,14 +4,17 @@
   height: 50vh;
   min-height: 250px;
   /* height of carousel */
-  background-size: cover; }
+  background-size: cover;
+  top: 0; }
 
 h2 {
   font-size: 5vh;
   color: white;
   opacity: 0.8;
-  position: relative;
-  top: 15vh; }
+  position: absolute;
+  top: 15vh;
+  width: 100vw;
+  text-align: center; }
 
 .container {
   max-width: 1200px;
