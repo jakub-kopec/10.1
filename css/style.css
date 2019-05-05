@@ -1,43 +1,11 @@
-.carousel-cell {
-  width: 100%;
-  /* full width */
-  height: 50vh;
-  min-height: 250px;
-  /* height of carousel */
-  background-size: cover;
-  top: 0;
-}
+.carousel-cell { width: 100%; /* full width */ height: 50vh; min-height: 250px; /* height of carousel */ background-size: cover; top: 0; }
 
-h2 {
-  font-size: 5vh;
-  color: white;
-  opacity: 0.8;
-  position: absolute;
-  top: 15vh;
-  width: 100vw;
-  text-align: center;
-}
+h2 { font-size: 5vh; color: white; opacity: 0.8; position: absolute; top: 15vh; width: 100vw; text-align: center; }
 
-.container {
-  max-width: 1200px;
-  text-align: center;
-}
+.container { max-width: 1200px; text-align: center; }
 
-.flickity-page-dots {
-  display: none;
-}
+.flickity-page-dots { display: none; }
 
-button {
-  position: absolute;
-  top: 52vh;
-}
+button { position: absolute; top: 52vh; }
 
-.progress-bar {
-  height: 2vh;
-  width: 0;
-  background: #333;
-}
-
-/*# sourceMappingURL=style.css.map */
-
-/*# sourceMappingURL=style.css.map */
+.progress-bar { height: 2vh; width: 0; background: #333; }
