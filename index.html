@@ -11,6 +11,7 @@
         <button class="button" id="reset" data-selector=".cell1">Restart</button>
         <div class="main-carousel" id="carousel"></div>
         <div class="progress-bar"></div>
+        <div id="map"></div>
         <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
         <script src="vendor/flickity.pkgd.min.js"></script>
         <script src="vendor/hash.js"></script>
@@ -25,31 +26,54 @@
             var carousellSlides = [
                 {
                     image: '',
+                    coords: {
+                        lat: -25.363,
+                        lng: 131.044
+                    },
                     id: 'cell1',
                     title: 'Thailand beach',
                     description: "<img src='https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Thailand beach'>"
                 },
                 {
                     image: '',
+                    coords: {
+                        lat: 13.707652,
+                        lng: 100.535612
+                    },
                     title: 'Thailand temple',
                     description: "<img src='https://images.pexels.com/photos/733064/pexels-photo-733064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Thailand temple'>"
                 },
                 {
                     image: '',
+                    coords: {
+                        lat: -33.876394,
+                        lng: 151.211633
+                    },
                     title: 'Sydney',
                     description: "<img src='https://images.pexels.com/photos/995764/pexels-photo-995764.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Sydney'>"
                 },
                 {
                     image: '',
+                    coords: {
+                        lat: 64.731155,
+                        lng: -18.329888
+                    },
                     title: 'Iceland',
                     description: "<img src='https://images.pexels.com/photos/1009136/pexels-photo-1009136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Iceland'>"
                 },
                 {
                     image: '',
+                    coords: {
+                        lat: 41.858576,
+                        lng: -87.635504
+                    },
                     title: 'Chicago',
                     description: "<img src='https://images.pexels.com/photos/2124696/pexels-photo-2124696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Chicago'>"
                 }
             ];
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxy0DQINxKdEjzNPmqFTcWILqs39Etv-o&callback=initMap">
         </script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>

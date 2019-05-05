@@ -9,3 +9,5 @@ h2 { font-size: 5vh; color: white; opacity: 0.8; position: absolute; top: 15vh; 
 button { position: absolute; top: 52vh; }
 
 .progress-bar { height: 2vh; width: 0; background: #333; }
+
+#map { height: 50vh; width: 100%; /* The width is the width of the web page */ }

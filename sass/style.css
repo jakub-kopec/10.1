@@ -32,4 +32,9 @@ button {
   width: 0;
   background: #333; }
 
+#map {
+  height: 50vh;
+  width: 100%;
+  /* The width is the width of the web page */ }
+
 /*# sourceMappingURL=style.css.map */

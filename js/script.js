@@ -43,3 +43,20 @@ flkty.on( 'scroll', function( progress ) {
     progressBar.style.width = progress * 100 + '%';
 });
 
+//GMaps
+// Initialize and add the map
+window.initMap = function() {
+    // The location of Thailand Beach
+    var thailandBeach = {lat: 9.482070, lng: 100.012520};
+    // The map, centered at Thailand Beach
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: thailandBeach});
+    // The marker, positioned at Thailand Beach
+    var marker = new google.maps.Marker({position: thailandBeach, map: map});
+
+    carousellSlides.forEach(function(element) {
+        var coordinates = element.coords
+        console.log(coordinates)
+        var marker = new google.maps.Marker({position: coordinates, map: map})
+    })
+}
