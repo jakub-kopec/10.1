@@ -11,7 +11,6 @@ for(var i = 0; i < carousellSlides.length; i++){
 }
 
 var mainCarousel = document.getElementById('carousel')
-console.log('mainCarousel', mainCarousel)
 mainCarousel.insertAdjacentHTML('beforeend', carousellSlidesAdded)
 
 //Initializing
@@ -46,17 +45,78 @@ flkty.on( 'scroll', function( progress ) {
 //GMaps
 // Initialize and add the map
 window.initMap = function() {
-    // The location of Thailand Beach
-    var thailandBeach = {lat: 9.482070, lng: 100.012520};
-    // The map, centered at Thailand Beach
+    var thailandBeach = carousellSlides[0].coords;
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 4, center: thailandBeach});
-    // The marker, positioned at Thailand Beach
-    var marker = new google.maps.Marker({position: thailandBeach, map: map});
+    var markers = [];
 
-    carousellSlides.forEach(function(element) {
-        var coordinates = element.coords
-        console.log(coordinates)
-        var marker = new google.maps.Marker({position: coordinates, map: map})
-    })
+    for (i=0; i<carousellSlides.length; i++) {
+        markers[i] = new google.maps.Marker({
+            position: carousellSlides[i].coords,
+            map: map,
+            id: i
+        });
+        markers[i].addListener('click', function(){
+            flkty.select(this.id)
+        })
+    }
+
+    flkty.on( 'change', function(index) {
+        smoothPanAndZoom(map, 4, carousellSlides[index].coords)
+    });
 }
+
+function smoothPanAndZoom (map, zoom, coords) {
+
+    var jumpZoom = zoom - Math.abs(map.getZoom() - zoom);
+    jumpZoom = Math.min(jumpZoom, zoom -1);
+    jumpZoom = Math.max(jumpZoom, 3);
+
+    smoothZoom(map, jumpZoom, function(){
+        smoothPan(map, coords, function(){
+            smoothZoom(map, zoom);
+        });
+    });
+};
+
+function smoothZoom (map, zoom, callback) {
+    var startingZoom = map.getZoom();
+    var steps = Math.abs(startingZoom - zoom);
+
+    if(!steps) {
+        if(callback) {
+            callback();
+        }
+        return;
+    }
+
+    var stepChange = - (startingZoom - zoom) / steps;
+
+    var i = 0;
+    var timer = window.setInterval(function(){
+        if(++i >= steps) {
+            window.clearInterval(timer);
+            if(callback) {
+                callback();
+            }
+        }
+        map.setZoom(Math.round(startingZoom + stepChange * i));
+    }, 80);
+};
+
+function smoothPan (map, coords, callback) {
+    var mapCenter = map.getCenter();
+    coords = new google.maps.LatLng(coords);
+
+    var steps = 12;
+    var panStep = {lat: (coords.lat() - mapCenter.lat()) / steps, lng: (coords.lng() - mapCenter.lng()) / steps};
+
+    var i = 0;
+    var timer = window.setInterval(function(){
+        if(++i >= steps) {
+            window.clearInterval(timer);
+            if(callback) callback();
+        }
+        map.panTo({lat: mapCenter.lat() + panStep.lat * i, lng: mapCenter.lng() + panStep.lng * i});
+    }, 1000/30);
+};

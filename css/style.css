@@ -6,7 +6,7 @@ h2 { font-size: 5vh; color: white; opacity: 0.8; position: absolute; top: 15vh; 
 
 .flickity-page-dots { display: none; }
 
-button { position: absolute; top: 52vh; }
+button { position: absolute; top: 48vh; z-index: 1; }
 
 .progress-bar { height: 2vh; width: 0; background: #333; }
 

@@ -30,7 +30,8 @@ h2 {
 
 button {
   position: absolute;
-  top: $carousell-height + $progess-bar-height;
+  top: $carousell-height - $progess-bar-height;
+  z-index: 1;
 }
 
 .progress-bar {

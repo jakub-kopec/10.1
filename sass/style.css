@@ -25,7 +25,8 @@ h2 {
 
 button {
   position: absolute;
-  top: 52vh; }
+  top: 48vh;
+  z-index: 1; }
 
 .progress-bar {
   height: 2vh;
